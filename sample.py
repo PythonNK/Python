@@ -1,3 +1,4 @@
-print("test!!!")
+# -*- coding: utf-8 -*-
 
-print("test222")
+print("日本語でサンプル")
+
