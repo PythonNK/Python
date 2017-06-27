@@ -4,33 +4,44 @@ from pygame.locals import *
 import sys
 
 def main():
-    (w,h) = (400,400)   # ‰æ–ÊƒTƒCƒY
+    (w,h) = (400,400)   # ç”»é¢ã‚µã‚¤ã‚º
     (x,y) = (w/2, h/2)
-    pygame.init()       # pygame‰Šú‰»
-    pygame.display.set_mode((w, h), 0, 32)  # ‰æ–Êİ’è
+    pygame.init()       # pygameåˆæœŸåŒ–
+    pygame.display.set_mode((w, h), 0, 32)  # ç”»é¢è¨­å®š
     screen = pygame.display.get_surface()
-    bg = pygame.image.load("bg.jpg").convert_alpha()    # ”wŒi‰æ‘œ‚Ìæ“¾
+    bg = pygame.image.load("bg.jpg").convert_alpha()    # èƒŒæ™¯ç”»åƒã®å–å¾—
     rect_bg = bg.get_rect()
-    player = pygame.image.load("player.png").convert_alpha()    # ƒvƒŒƒCƒ„[‰æ‘œ‚Ìæ“¾
+    player = pygame.image.load("player.png").convert_alpha()    # ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ç”»åƒã®å–å¾—
     rect_player = player.get_rect()
     rect_player.center = (x, y)
+    
+    vx = vy = 10  # ã‚­ãƒ¼ã‚’æŠ¼ã—ãŸã¨ãã®ç§»å‹•è·é›¢
+    
     while (1):
-        pygame.display.update()             # ‰æ–ÊXV
-        pygame.time.wait(30)                # XVŠÔŠÔŠu
-        screen.fill((0, 20, 0, 0))          # ‰æ–Ê‚Ì”wŒiF
-        screen.blit(bg, rect_bg)            # ”wŒi‰æ‘œ‚Ì•`‰æ
-        screen.blit(player, rect_player)    # ƒvƒŒƒCƒ„[‰æ‘œ‚Ì•`‰æ
-        # I—¹—p‚ÌƒCƒxƒ“ƒgˆ—
+        pygame.display.update()             # ç”»é¢æ›´æ–°
+        pygame.time.wait(30)                # æ›´æ–°æ™‚é–“é–“éš”
+        screen.fill((0, 20, 0, 0))          # ç”»é¢ã®èƒŒæ™¯è‰²
+        screen.blit(bg, rect_bg)            # èƒŒæ™¯ç”»åƒã®æç”»
+        screen.blit(player, rect_player)    # ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ç”»åƒã®æç”»
+        # çµ‚äº†ç”¨ã®ã‚¤ãƒ™ãƒ³ãƒˆå‡¦ç†
         for event in pygame.event.get():
-            if event.type == QUIT:          # •Â‚¶‚éƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½‚Æ‚«
+            if event.type == QUIT:          # é–‰ã˜ã‚‹ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸã¨ã
                 pygame.quit()
                 sys.exit()
-            if event.type == KEYDOWN:       # ƒL[‚ğ‰Ÿ‚µ‚½‚Æ‚«
-                if event.key == K_ESCAPE:   # EscƒL[‚ª‰Ÿ‚³‚ê‚½‚Æ‚«
+            if event.type == KEYDOWN:       # ã‚­ãƒ¼ã‚’æŠ¼ã—ãŸã¨ã
+                if event.key == K_ESCAPE:   # Escã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸã¨ã
                     pygame.quit()
                     sys.exit()
+                # çŸ¢å°ã‚­ãƒ¼ãªã‚‰ç”»åƒã‚’ç§»å‹•
+                if event.key == K_LEFT:
+                    rect_player.move_ip(-vx, 0)
+                if event.key == K_RIGHT:
+                    rect_player.move_ip(vx, 0)
+                if event.key == K_UP:
+                    rect_player.move_ip(0, -vy)
+                if event.key == K_DOWN:
+                    rect_player.move_ip(0, vy)
 
 if __name__ == "__main__":
         main()
         
-#        https://algorithm.joho.info/programming/python/pygame-splite/

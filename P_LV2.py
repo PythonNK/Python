@@ -4,31 +4,31 @@ from pygame.locals import *
 import sys
 
 def main():
-    (w,h) = (500,500)                       # ‰æ–ÊƒTƒCƒY
-    pygame.init()                           # pygame‰Šú‰»
-    pygame.display.set_mode((w, h), 0, 32)  # ‰æ–Êİ’è
+    (w,h) = (500,500)                       # ç”»é¢ã‚µã‚¤ã‚º
+    pygame.init()                           # pygameåˆæœŸåŒ–
+    pygame.display.set_mode((w, h), 0, 32)  # ç”»é¢è¨­å®š
     screen = pygame.display.get_surface()
-    bg = pygame.image.load("bg.jpg").convert_alpha()    # ”wŒi‰æ‘œ‚Ìæ“¾
+    bg = pygame.image.load("bg.jpg").convert_alpha()    # èƒŒæ™¯ç”»åƒã®å–å¾—
     rect_bg = bg.get_rect()
 
     while (1):
-        pygame.display.update()             # ‰æ–ÊXV
-        pygame.time.wait(30)                # XVŠÔŠÔŠu
-        screen.fill((0, 20, 0, 0))          # ‰æ–Ê‚Ì”wŒiF
-        screen.blit(bg, rect_bg)            # ”wŒi‰æ‘œ‚Ì•`‰æ
+        pygame.display.update()             # ç”»é¢æ›´æ–°
+        pygame.time.wait(30)                # æ›´æ–°æ™‚é–“é–“éš”
+        screen.fill((0, 20, 0, 0))          # ç”»é¢ã®èƒŒæ™¯è‰²
+        screen.blit(bg, rect_bg)            # èƒŒæ™¯ç”»åƒã®æç”»
         
-        pygame.draw.ellipse(screen,(255,0,0),(100,30,50,50),5) # ‰~‚ğ•`‰æ(“h‚è‚Â‚Ô‚µ‚È‚µ)
-        pygame.draw.ellipse(screen,(255,0,0),(250,30,50,50))     # ‰~‚ğ•`‰æ(“h‚è‚Â‚Ô‚µ)
+        pygame.draw.ellipse(screen,(255,0,0),(100,30,50,50),5) # å††ã‚’æç”»(å¡—ã‚Šã¤ã¶ã—ãªã—)
+        pygame.draw.ellipse(screen,(255,0,0),(250,30,50,50))     # å††ã‚’æç”»(å¡—ã‚Šã¤ã¶ã—)
 
         
         
-        # I—¹—p‚ÌƒCƒxƒ“ƒgˆ—
+        # çµ‚äº†ç”¨ã®ã‚¤ãƒ™ãƒ³ãƒˆå‡¦ç†
         for event in pygame.event.get():
-            if event.type == QUIT:          # •Â‚¶‚éƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½‚Æ‚«
+            if event.type == QUIT:          # é–‰ã˜ã‚‹ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸã¨ã
                 pygame.quit()
                 sys.exit()
-            if event.type == KEYDOWN:       # ƒL[‚ğ‰Ÿ‚µ‚½‚Æ‚«
-                if event.key == K_ESCAPE:   # EscƒL[‚ª‰Ÿ‚³‚ê‚½‚Æ‚«
+            if event.type == KEYDOWN:       # ã‚­ãƒ¼ã‚’æŠ¼ã—ãŸã¨ã
+                if event.key == K_ESCAPE:   # Escã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸã¨ã
                     pygame.quit()
                     sys.exit()
 
