@@ -34,7 +34,7 @@ n = neuralNetwork(input_nodes,hidden_nodes,output_nodes, learning_rate)
 
 # load the mnist training data CSV file into a list
 #csvデータを読み込む
-training_data_file = open("C:\\Users\\dev01\\mnist_dataset\\mnist_train_100.csv", 'r')
+training_data_file = open("C:\\Users\\dev01\\Documents\\GitHub\\tpython\\Python\\nueralnet\\mnist_dataset\\mnist_train_100.csv", 'r')
 #行ごとにメモリに取り込む
 training_data_list = training_data_file.readlines()
 #ファイルを閉じる
@@ -69,7 +69,7 @@ for e in range(epochs):
     pass
 
 # load the mnist test data CSV file into a list
-test_data_file = open("C:\\Users\\dev01\\mnist_dataset\\mnist_test_10.csv", 'r')
+test_data_file = open("C:\\Users\\dev01\\Documents\\GitHub\\tpython\\Python\\nueralnet\\mnist_dataset\\mnist_test_10.csv", 'r')
 test_data_list = test_data_file.readlines()
 test_data_file.close()
 
@@ -108,10 +108,6 @@ for record in test_data_list:
     else:
         # network's answer doesn't match correct answer, add 0 to scorecard
         scorecard.append(0)
-        pass
-
-    pass
-
 
 # calculate the performance score, the fraction of correct answers
 scorecard_array = numpy.asarray(scorecard)
