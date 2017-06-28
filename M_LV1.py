@@ -24,6 +24,7 @@ def get_stock(code, start_date, end_date):
 def main():
     # 株価の取得(銘柄コード, 開始日, 終了日)
     data = get_stock(3318, '2017-3-23', '2017-3-27')
+    
     # 取得したデータの表示
     print("日付\t始値\t終値\t高値\t安値")
     for date, open, close, high, low in list(zip(*data)):
