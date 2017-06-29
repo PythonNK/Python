@@ -57,20 +57,20 @@ def main():
                     rect_player.move_ip(0, -vy)
                 if event.key == K_DOWN:
                     rect_player.move_ip(0, vy)
-
-            # マウスクリックで蛇をコピー
-            if event.type == MOUSEBUTTONDOWN and event.button == 1:
-                x1, y1 = event.pos
-                x1 -= pythonImg.get_width() / 2
-                y1 -= pythonImg.get_height() / 2
-                pythons_pos.append((x1,y1))  # 蛇の位置を追加
-            # マウス移動で蛇を移動
-            if event.type == MOUSEMOTION:
-                x1, y1 = event.pos
-                x1 -= pythonImg.get_width() / 2
-                y1 -= pythonImg.get_height() / 2
-                cur_pos = (x1,y1)
+        # マウスクリックで蛇をコピー
+        mouse_pressed = pygame.mouse.get_pressed()
+        if mouse_pressed[0]:  # 左クリック
+            x, y = pygame.mouse.get_pos()
+            x -= pythonImg.get_width() / 2
+            y -= pythonImg.get_height() / 2
+            pythons_pos.append((x,y))  # 蛇の位置を追加
         
+        # マウス移動で蛇を移動
+        x, y = pygame.mouse.get_pos()
+        x -= pythonImg.get_width() / 2
+        y -= pythonImg.get_height() / 2
+        cur_pos = (x,y)
+
         # 蛇を表示
         screen.blit(pythonImg, cur_pos)
         for i, j in pythons_pos:
